@@ -1,0 +1,1448 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="Contact Bakerz Bite for orders, questions and feedback. Karachi, Pakistan.">
+
+    <meta name="theme-color" content="#351b16">
+
+    <title>Contact Us | Bakerz Bite</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
+
+    <!-- Existing CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Advanced Contact Page CSS -->
+    <style>
+
+        /* ================= GLOBAL ================= */
+
+        :root {
+            --primary: #6f3828;
+            --secondary: #b87551;
+            --dark: #281713;
+            --light: #fff8f2;
+            --cream: #f7e8d9;
+            --white: #ffffff;
+            --text: #55423a;
+            --success: #198754;
+            --danger: #dc3545;
+            --shadow: 0 12px 35px rgba(53, 27, 22, 0.10);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: var(--light);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        button,
+        input,
+        textarea,
+        select {
+            font-family: inherit;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        .top-navigation {
+            background: rgba(255, 248, 242, 0.97);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 3px 20px rgba(0, 0, 0, 0.06);
+            padding: 12px 0;
+            z-index: 1000;
+        }
+
+        .my-logo img {
+            object-fit: contain;
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 15px;
+            position: relative;
+            transition: 0.3s ease;
+        }
+
+        .navbar-nav .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 3px;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: var(--secondary);
+        }
+
+        .navbar-nav .nav-link:hover::after,
+        .navbar-nav .nav-link.active::after {
+            width: 100%;
+        }
+
+        .mobile-btn {
+            border: 1px solid var(--primary);
+        }
+
+        /* ================= HERO ================= */
+
+        .hero-section {
+            min-height: 390px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            background:
+                linear-gradient(rgba(35, 18, 13, 0.78),
+                rgba(35, 18, 13, 0.72)),
+                url("images/contact-bg.jpg") center/cover no-repeat,
+                linear-gradient(135deg, #351b16, #9b6044);
+        }
+
+        .hero-section::before {
+            content: "✦";
+            position: absolute;
+            font-size: 150px;
+            color: rgba(255, 255, 255, 0.06);
+            top: 15px;
+            left: 10%;
+        }
+
+        .hero-section::after {
+            content: "✦";
+            position: absolute;
+            font-size: 120px;
+            color: rgba(255, 255, 255, 0.06);
+            bottom: 5px;
+            right: 12%;
+        }
+
+        .hero-text {
+            position: relative;
+            z-index: 1;
+            padding: 30px 15px;
+            animation: fadeUp 1s ease;
+        }
+
+        .hero-text h1 {
+            color: var(--white);
+            font-size: clamp(38px, 6vw, 65px);
+            font-weight: 800;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .hero-text p {
+            color: #f5d6c0;
+            font-size: 19px;
+            letter-spacing: 1px;
+        }
+
+        .hero-label {
+            display: inline-block;
+            color: #f2c49e;
+            border: 1px solid rgba(255,255,255,0.4);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 12px;
+            letter-spacing: 3px;
+            margin-bottom: 18px;
+        }
+
+        /* ================= CONTACT SECTION ================= */
+
+        .contacts {
+            max-width: 1200px;
+            margin: 90px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 0.85fr 1.15fr;
+            gap: 35px;
+            align-items: stretch;
+        }
+
+        .leftside,
+        .form {
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .leftside {
+            background: linear-gradient(145deg, #48251c, #281713);
+            color: var(--white);
+        }
+
+        .leftside h2,
+        .form h2 {
+            font-size: 27px;
+            font-weight: 750;
+            margin-bottom: 30px;
+        }
+
+        .leftside h2 {
+            color: #f6d3b7;
+        }
+
+        .contact-intro {
+            color: #e5c4b0;
+            line-height: 1.8;
+            margin-bottom: 35px;
+        }
+
+        /* Contact Details */
+
+        .details {
+            display: flex;
+            align-items: flex-start;
+            gap: 18px;
+            margin-bottom: 28px;
+            transition: 0.3s ease;
+        }
+
+        .details:hover {
+            transform: translateX(7px);
+        }
+
+        .details > i {
+            min-width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.12);
+            color: #f4c29f;
+            font-size: 19px;
+            border-radius: 12px;
+        }
+
+        .detail-text h3 {
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: #f7d6bd;
+        }
+
+        .detail-text p {
+            color: #e7d2c6;
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .detail-text a {
+            color: #e7d2c6;
+            transition: 0.3s;
+        }
+
+        .detail-text a:hover {
+            color: #f5bb8e;
+        }
+
+        .social-contact {
+            display: flex;
+            gap: 12px;
+            margin-top: 35px;
+        }
+
+        .social-contact a {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            background: rgba(255,255,255,0.12);
+            border-radius: 50%;
+            transition: 0.3s;
+        }
+
+        .social-contact a:hover {
+            background: var(--secondary);
+            transform: translateY(-5px);
+        }
+
+        /* ================= CONTACT FORM ================= */
+
+        .form {
+            background: var(--white);
+        }
+
+        .form h2 {
+            color: var(--dark);
+        }
+
+        .form-subtitle {
+            color: #8b7770;
+            margin-top: -20px;
+            margin-bottom: 28px;
+            font-size: 14px;
+        }
+
+        .form label {
+            display: block;
+            font-weight: 650;
+            font-size: 14px;
+            color: var(--dark);
+            margin-bottom: 8px;
+        }
+
+        .form input,
+        .form select,
+        .form textarea {
+            width: 100%;
+            padding: 13px 15px;
+            border: 1px solid #e5d9d2;
+            border-radius: 10px;
+            background: #fffdfb;
+            outline: none;
+            font-size: 14px;
+            color: var(--dark);
+            margin-bottom: 5px;
+            transition: 0.3s;
+        }
+
+        .form input:focus,
+        .form select:focus,
+        .form textarea:focus {
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 4px rgba(184, 117, 81, 0.12);
+        }
+
+        .form textarea {
+            resize: vertical;
+            min-height: 140px;
+        }
+
+        .form .invalid {
+            border-color: var(--danger) !important;
+            background: #fff8f8;
+        }
+
+        .error {
+            display: block;
+            min-height: 20px;
+            color: var(--danger);
+            font-size: 12px;
+            margin-bottom: 12px;
+        }
+
+        .char-count {
+            display: block;
+            text-align: right;
+            color: #8d7d76;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+
+        .form button {
+            width: 100%;
+            border: none;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 10px;
+            background: linear-gradient(135deg, #8a4931, #bd8057);
+            color: white;
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .form button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(111, 56, 40, 0.25);
+        }
+
+        .form button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        #successMessage {
+            display: none;
+            padding: 14px;
+            margin-top: 18px;
+            background: #e9f8ee;
+            border: 1px solid #b8e6c6;
+            border-radius: 10px;
+            color: var(--success);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* ================= HELP SECTION ================= */
+
+        .help-section {
+            background: linear-gradient(120deg, #f2dfce, #fff5ec);
+            padding: 55px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            text-align: center;
+        }
+
+        .help-icon,
+        .cupcake-icon {
+            font-size: 45px;
+            color: var(--primary);
+            transition: 0.4s;
+        }
+
+        .help-icon:hover,
+        .cupcake-icon:hover {
+            transform: rotate(12deg) scale(1.15);
+        }
+
+        .help-text h2 {
+            color: var(--dark);
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .help-text p {
+            margin: 4px 0;
+            color: #76594d;
+        }
+
+        /* ================= MAP ================= */
+
+        .map-section {
+            padding: 75px 20px;
+            text-align: center;
+        }
+
+        .map-section h2 {
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 12px;
+        }
+
+        .map-section > p {
+            color: #8b7770;
+            margin-bottom: 30px;
+        }
+
+        .map {
+            max-width: 1150px;
+            margin: auto;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .map iframe {
+            width: 100%;
+            height: 420px;
+            border: 0;
+            display: block;
+        }
+
+        /* ================= FOOTER ================= */
+
+        .footer {
+            background: #281713;
+            color: #f6e6dc;
+            padding: 65px 0 20px;
+        }
+
+        .footer-logo img {
+            object-fit: contain;
+        }
+
+        .footer-text {
+            display: block;
+            color: #d4b5a4;
+            margin-top: 10px;
+        }
+
+        .footer h4 {
+            color: #f5c9a8;
+            font-size: 19px;
+            font-weight: 700;
+            margin-bottom: 22px;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #dfc9bc;
+            transition: 0.3s;
+            font-size: 14px;
+        }
+
+        .footer-links a:hover {
+            color: #f5b98d;
+            padding-left: 5px;
+        }
+
+        .icons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .icons a {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(255,255,255,0.12);
+            color: white;
+            transition: 0.3s;
+        }
+
+        .icons a:hover {
+            background: var(--secondary);
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.15);
+            text-align: center;
+            padding-top: 22px;
+            color: #c9b3a6;
+            font-size: 13px;
+        }
+
+        /* ================= ANIMATIONS ================= */
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ================= RESPONSIVE DESIGN ================= */
+
+        @media (max-width: 991px) {
+
+            .contacts {
+                grid-template-columns: 1fr;
+                max-width: 750px;
+            }
+
+            .navbar-nav {
+                align-items: flex-start !important;
+                padding: 15px 0;
+            }
+
+            .navbar-nav .nav-link::after {
+                display: none;
+            }
+        }
+
+        @media (max-width: 576px) {
+
+            .hero-section {
+                min-height: 300px;
+            }
+
+            .contacts {
+                margin: 45px auto;
+                padding: 0 15px;
+                gap: 20px;
+            }
+
+            .leftside,
+            .form {
+                padding: 25px 20px;
+            }
+
+            .leftside h2,
+            .form h2 {
+                font-size: 23px;
+            }
+
+            .help-section {
+                flex-direction: column;
+                gap: 18px;
+                padding: 40px 15px;
+            }
+
+            .map iframe {
+                height: 300px;
+            }
+
+            .footer {
+                text-align: center;
+            }
+
+            .icons {
+                justify-content: center;
+            }
+        }
+
+        /* Reduced motion accessibility */
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- ================= NAVIGATION ================= -->
+
+    <nav class="navbar navbar-expand-lg sticky-top top-navigation">
+
+        <div class="container main-container">
+
+            <a class="navbar-brand my-logo" href="index.html">
+                <img src="images/Logo.png"
+                    alt="Bakerz Bite Logo"
+                    width="175"
+                    height="75">
+            </a>
+
+            <button class="navbar-toggler mobile-btn"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#Links"
+                aria-controls="Links"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end"
+                id="Links">
+
+                <ul class="navbar-nav align-items-center gap-3">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery.html">Gallery</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active"
+                            href="contact.html"
+                            aria-current="page">Contact</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="menu.html">Menu</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="merchandize.html">
+                            Merchandise
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="faqs.html">FAQs</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="offers.html">Offers</a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+    <main>
+
+        <!-- ================= HERO ================= -->
+
+        <section class="hero-section">
+
+            <div class="hero-text">
+
+                <span class="hero-label">BAKERZ BITE</span>
+
+                <h1>Get In Touch</h1>
+
+                <p>Every sweet connection starts with a hello!</p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CONTACT INFORMATION & FORM ================= -->
+
+        <section class="contacts">
+
+            <!-- LEFT SIDE -->
+
+            <div class="leftside">
+
+                <h2>Let's Connect!</h2>
+
+                <p class="contact-intro">
+                    Have a question, want to place an order,
+                    or simply want to share your experience?
+                    Our team would love to hear from you.
+                </p>
+
+
+                <div class="details">
+
+                    <i class="fa-solid fa-location-dot"
+                        aria-hidden="true"></i>
+
+                    <div class="detail-text">
+
+                        <h3>Our Location</h3>
+
+                        <p>Karachi, Pakistan</p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="details">
+
+                    <i class="fa-solid fa-phone"
+                        aria-hidden="true"></i>
+
+                    <div class="detail-text">
+
+                        <h3>Phone Number</h3>
+
+                        <p>
+                            <a href="tel:+9212345678900">
+                                +92 123 45678900
+                            </a>
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="details">
+
+                    <i class="fa-solid fa-envelope"
+                        aria-hidden="true"></i>
+
+                    <div class="detail-text">
+
+                        <h3>Email Address</h3>
+
+                        <p>
+                            <a href="mailto:bakerzbite@gmail.com">
+                                bakerzbite@gmail.com
+                            </a>
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="details">
+
+                    <i class="fa-solid fa-clock"
+                        aria-hidden="true"></i>
+
+                    <div class="detail-text">
+
+                        <h3>Working Hours</h3>
+
+                        <p>Monday - Sunday</p>
+
+                        <p>9:00 AM - 10:00 PM</p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="social-contact">
+
+                    <a href="#"
+                        aria-label="Facebook">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+
+                    <a href="#"
+                        aria-label="Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+                    <a href="#"
+                        aria-label="WhatsApp">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- RIGHT SIDE FORM -->
+
+            <div class="form">
+
+                <h2>Send Us a Message</h2>
+
+                <p class="form-subtitle">
+                    Fill out the form below and let us know how we can help.
+                </p>
+
+
+                <form id="contactForm" novalidate>
+
+                    <!-- NAME -->
+
+                    <label for="name">Full Name *</label>
+
+                    <input type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Enter your full name"
+                        autocomplete="name"
+                        maxlength="60"
+                        required
+                        aria-describedby="nameError">
+
+                    <small id="nameError"
+                        class="error"
+                        role="alert"></small>
+
+
+                    <!-- EMAIL -->
+
+                    <label for="email">Email Address *</label>
+
+                    <input type="email"
+                        id="email"
+                        name="email"
+                        placeholder="example@gmail.com"
+                        autocomplete="email"
+                        maxlength="100"
+                        required
+                        aria-describedby="emailError">
+
+                    <small id="emailError"
+                        class="error"
+                        role="alert"></small>
+
+
+                    <!-- SUBJECT -->
+
+                    <label for="subject">Subject *</label>
+
+                    <select id="subject" name="subject" required>
+
+                        <option value="">Select a subject</option>
+
+                        <option value="general">General Inquiry</option>
+
+                        <option value="order">Order Inquiry</option>
+
+                        <option value="feedback">Feedback</option>
+
+                        <option value="complaint">Complaint</option>
+
+                    </select>
+
+                    <small id="subjectError"
+                        class="error"
+                        role="alert"></small>
+
+
+                    <!-- MESSAGE -->
+
+                    <label for="message">Your Message *</label>
+
+                    <textarea id="message"
+                        name="message"
+                        rows="5"
+                        placeholder="Write your message here..."
+                        maxlength="500"
+                        required
+                        aria-describedby="messageError"></textarea>
+
+                    <small class="char-count">
+                        <span id="charCount">0</span>/500 Characters
+                    </small>
+
+                    <small id="messageError"
+                        class="error"
+                        role="alert"></small>
+
+
+                    <!-- SUBMIT BUTTON -->
+
+                    <button type="submit" id="submitBtn">
+
+                        <i class="fa-solid fa-paper-plane"></i>
+
+                        Send Message
+
+                    </button>
+
+
+                    <!-- SUCCESS MESSAGE -->
+
+                    <p id="successMessage"
+                        role="status"
+                        aria-live="polite"></p>
+
+                </form>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= HELP SECTION ================= -->
+
+        <section class="help-section">
+
+            <div class="help-icon">
+
+                <i class="fa-solid fa-headset"></i>
+
+            </div>
+
+
+            <div class="help-text">
+
+                <h2>We're Always Here to Help!</h2>
+
+                <p>Whether it's an order, a question,</p>
+
+                <p>or just to say hello, feel free to reach out.</p>
+
+            </div>
+
+
+            <div class="cupcake-icon">
+
+                <i class="fa-solid fa-cake-candles"></i>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= GOOGLE MAP ================= -->
+
+        <section class="map-section">
+
+            <h2>Find Our Location</h2>
+
+            <p>Visit us in Karachi, Pakistan.</p>
+
+            <div class="map">
+
+                <iframe
+                    title="Bakerz Bite location in Karachi"
+                    src="https://www.google.com/maps?q=Karachi,Pakistan&output=embed"
+                    allowfullscreen
+                    loading="lazy"
+                    referrerpolicy="strict-origin-when-cross-origin">
+                </iframe>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        <div class="container">
+
+            <div class="row g-4">
+
+                <!-- LOGO -->
+
+                <div class="col-md-4">
+
+                    <div class="footer-logo">
+
+                        <img src="images/Logo.png"
+                            alt="Bakerz Bite Logo"
+                            width="175"
+                            height="75">
+
+                    </div>
+
+                    <span class="footer-text">
+                        Sweet Moments, Always!
+                    </span>
+
+                    <p class="mt-3">
+                        Making every celebration sweeter
+                        with delicious treats and unforgettable moments.
+                    </p>
+
+                </div>
+
+
+                <!-- QUICK LINKS -->
+
+                <div class="col-6 col-md-4">
+
+                    <h4>Quick Links</h4>
+
+                    <ul class="footer-links">
+
+                        <li><a href="index.html">Home</a></li>
+
+                        <li><a href="about.html">About Us</a></li>
+
+                        <li><a href="gallery.html">Gallery</a></li>
+
+                        <li><a href="contact.html">Contact</a></li>
+
+                        <li><a href="menu.html">Menu</a></li>
+
+                        <li><a href="merchandize.html">Merchandise</a></li>
+
+                        <li><a href="faqs.html">FAQs</a></li>
+
+                        <li><a href="offers.html">Offers</a></li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- SOCIAL MEDIA -->
+
+                <div class="col-6 col-md-4">
+
+                    <h4>Follow Us</h4>
+
+                    <p>Stay connected with Bakerz Bite.</p>
+
+                    <div class="icons">
+
+                        <a href="#" aria-label="Facebook">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+
+                        <a href="#" aria-label="Instagram">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+
+                        <a href="#" aria-label="WhatsApp">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- COPYRIGHT -->
+
+            <div class="footer-bottom mt-4">
+
+                <p>
+                    &copy; 2026 Bakerz Bite.
+                    All Rights Reserved.
+                </p>
+
+                <p>
+                    Crafted with <i class="fa-solid fa-heart"
+                        style="color:#e58b78"></i> for sweet moments.
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+        (function () {
+
+            "use strict";
+
+            // Get HTML Elements
+
+            const form = document.getElementById("contactForm");
+
+            const nameInput = document.getElementById("name");
+
+            const emailInput = document.getElementById("email");
+
+            const subjectInput = document.getElementById("subject");
+
+            const messageInput = document.getElementById("message");
+
+            const submitBtn = document.getElementById("submitBtn");
+
+            const successMessage =
+                document.getElementById("successMessage");
+
+            const charCount =
+                document.getElementById("charCount");
+
+
+            // Error Elements
+
+            const fields = {
+
+                name: {
+                    element: nameInput,
+                    error: document.getElementById("nameError")
+                },
+
+                email: {
+                    element: emailInput,
+                    error: document.getElementById("emailError")
+                },
+
+                subject: {
+                    element: subjectInput,
+                    error: document.getElementById("subjectError")
+                },
+
+                message: {
+                    element: messageInput,
+                    error: document.getElementById("messageError")
+                }
+
+            };
+
+
+            // Validation Functions
+
+            const validators = {
+
+                name(value) {
+
+                    if (!value) {
+                        return "Please enter your full name.";
+                    }
+
+                    if (value.length < 2) {
+                        return "Name must contain at least 2 characters.";
+                    }
+
+                    if (!/^[A-Za-z][A-Za-z .'-]*$/.test(value)) {
+                        return "Please enter a valid name.";
+                    }
+
+                    return "";
+
+                },
+
+
+                email(value) {
+
+                    if (!value) {
+                        return "Please enter your email address.";
+                    }
+
+                    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value)) {
+                        return "Please enter a valid email address.";
+                    }
+
+                    return "";
+
+                },
+
+
+                subject(value) {
+
+                    if (!value) {
+                        return "Please select a subject.";
+                    }
+
+                    return "";
+
+                },
+
+
+                message(value) {
+
+                    if (!value) {
+                        return "Please enter your message.";
+                    }
+
+                    if (value.length < 10) {
+                        return "Message must contain at least 10 characters.";
+                    }
+
+                    return "";
+
+                }
+
+            };
+
+
+            // Display Error Messages
+
+            function setError(key, message) {
+
+                const field = fields[key];
+
+                field.error.textContent = message;
+
+                field.element.classList.toggle(
+                    "invalid",
+                    Boolean(message)
+                );
+
+                field.element.setAttribute(
+                    "aria-invalid",
+                    message ? "true" : "false"
+                );
+
+            }
+
+
+            // Validate Individual Fields
+
+            function validateField(key) {
+
+                const value = fields[key].element.value.trim();
+
+                const errorMessage = validators[key](value);
+
+                setError(key, errorMessage);
+
+                return errorMessage === "";
+
+            }
+
+
+            // Validate All Fields
+
+            function validateForm() {
+
+                let isValid = true;
+
+                let firstInvalid = null;
+
+                Object.keys(fields).forEach(function (key) {
+
+                    const valid = validateField(key);
+
+                    if (!valid) {
+
+                        isValid = false;
+
+                        if (!firstInvalid) {
+                            firstInvalid = fields[key].element;
+                        }
+
+                    }
+
+                });
+
+                if (firstInvalid) {
+                    firstInvalid.focus();
+                }
+
+                return isValid;
+
+            }
+
+
+            // Live Character Counter
+
+            messageInput.addEventListener("input", function () {
+
+                charCount.textContent = messageInput.value.length;
+
+            });
+
+
+            // Live Validation
+
+            Object.keys(fields).forEach(function (key) {
+
+                const element = fields[key].element;
+
+                element.addEventListener("input", function () {
+
+                    if (element.classList.contains("invalid")) {
+                        validateField(key);
+                    }
+
+                    successMessage.style.display = "none";
+
+                });
+
+
+                element.addEventListener("change", function () {
+
+                    if (element.classList.contains("invalid")) {
+                        validateField(key);
+                    }
+
+                });
+
+
+                element.addEventListener("blur", function () {
+
+                    if (element.value.trim() !== "") {
+                        validateField(key);
+                    }
+
+                });
+
+            });
+
+
+            // Form Submission
+
+            form.addEventListener("submit", function (event) {
+
+                event.preventDefault();
+
+                successMessage.style.display = "none";
+
+                if (!validateForm()) {
+                    return;
+                }
+
+
+                // Frontend demonstration only.
+                // Connect Formspree, EmailJS or a backend
+                // to actually deliver messages.
+
+                submitBtn.disabled = true;
+
+                submitBtn.innerHTML =
+                    '<i class="fa-solid fa-spinner fa-spin"></i> Processing...';
+
+
+                setTimeout(function () {
+
+                    successMessage.textContent =
+                        "Thank you! Your form passed validation successfully. Connect an email service to receive messages.";
+
+                    successMessage.style.display = "block";
+
+                    form.reset();
+
+                    charCount.textContent = "0";
+
+
+                    // Reset Validation States
+
+                    Object.keys(fields).forEach(function (key) {
+
+                        setError(key, "");
+
+                    });
+
+
+                    // Restore Button
+
+                    submitBtn.disabled = false;
+
+                    submitBtn.innerHTML =
+                        '<i class="fa-solid fa-paper-plane"></i> Send Message';
+
+                    successMessage.scrollIntoView({
+                        behavior: "smooth",
+                        block: "nearest"
+                    });
+
+                }, 700);
+
+            });
+
+
+        })();
+
+    </script>
+
+
+    <!-- Bootstrap JavaScript -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+    </script>
+
+</body>
+
+</html>
